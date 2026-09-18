@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { BilleteraComponent } from './billetera/billetera.component';
+
+
 
 @Component({
-  imports: [],
+  imports: [BilleteraComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',

@@ -1,0 +1,89 @@
+<header class="bg-dark text-white py-3">
+  <div class="container">
+    <h1 class="fs-5 fw-bold mb-0">Mi Billetera Digital</h1>
+  </div>
+</header>
+
+<main class="container py-4">
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-5">
+      <section class="card" aria-labelledby="titulo-saldo">
+        <div class="card-body p-4">
+          <h2 id="titulo-saldo" class="fs-6 text-body-secondary mb-2">
+            Saldo actual
+          </h2>
+
+          <p class="fs-1 fw-bold text-success mb-0">
+            S/ 250.00
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <section class="mt-4" aria-labelledby="titulo-movimientos">
+    <h2 id="titulo-movimientos" class="fs-5 fw-bold mb-3">
+      Movimientos recientes
+    </h2>
+
+    <div class="table-responsive border">
+      <table class="table table-striped align-middle mb-0">
+        <caption class="visually-hidden">
+          Movimientos recientes de la billetera: fecha, tipo y monto en soles.
+        </caption>
+
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Monto</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>12/09/2026</td>
+            <td>
+              <span class="badge rounded-pill text-bg-success px-3">
+                Recarga
+              </span>
+            </td>
+            <td class="text-success fw-semibold">+ S/ 100.00</td>
+          </tr>
+
+          <tr>
+            <td>11/09/2026</td>
+            <td>
+              <span class="badge rounded-pill text-bg-danger px-3">
+                Gasto
+              </span>
+            </td>
+            <td class="text-danger fw-semibold">- S/ 45.50</td>
+          </tr>
+
+          <tr>
+            <td>10/09/2026</td>
+            <td>
+              <span class="badge rounded-pill text-bg-danger px-3">
+                Gasto
+              </span>
+            </td>
+            <td class="text-danger fw-semibold">- S/ 20.00</td>
+          </tr>
+
+          <tr>
+            <td>09/09/2026</td>
+            <td>
+              <span class="badge rounded-pill text-bg-success px-3">
+                Recarga
+              </span>
+            </td>
+            <td class="text-success fw-semibold">+ S/ 200.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <app-nuevo-movimiento />
+</main>
