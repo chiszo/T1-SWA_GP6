@@ -8,10 +8,10 @@
         <div class="col-12 col-md-4">
           <label for="tipo" class="form-label">Tipo</label>
 
-          <select id="tipo" name="tipo" class="form-select" required>
+          <select id="tipo" name="tipo" class="form-select" [(ngModel)]="tipo" required>
             <option value="" disabled selected>Selecciona un tipo</option>
-            <option value="recarga">Recarga</option>
-            <option value="gasto">Gasto</option>
+            <option value="Recarga">Recarga</option>
+            <option value="Gasto">Gasto</option>
           </select>
         </div>
 
@@ -20,6 +20,7 @@
 
           <input
             id="monto"
+            [(ngModel)]="monto"
             name="monto"
             type="number"
             class="form-control"
@@ -29,11 +30,15 @@
             required
           >
         </div>
-
         <div class="col-12 col-md-4">
-          <button type="submit" class="btn btn-primary w-100">
+          <button type="button" class="btn btn-primary w-100" [disabled]="esInvalido()" (click)="registrar()">
             Registrar movimiento
           </button>
+          @if (tipo === 'Gasto' && monto > saldo()) {
+          <div class="text-danger small mt-2">
+          El monto del gasto no puede superar el saldo actual.
+          </div>
+          }
         </div>
       </form>
     </div>
