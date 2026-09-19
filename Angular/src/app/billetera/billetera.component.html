@@ -43,12 +43,14 @@
               <td>{{ mov.fecha }}</td>
               <td>
                 <span class="badge" 
-                    [ngClass]="{'bg-success text-white': mov.tipo === 'Recarga', 'bg-danger text-white': mov.tipo === 'Gasto'}">
+                    [class.bg-success]="mov.tipo === 'Recarga'" 
+                    [class.bg-danger]="mov.tipo === 'Gasto'">
                   {{ mov.tipo }}
                 </span>
               </td>
               <td class="fw-bold" 
-                  [ngClass]="{'text-success': mov.tipo === 'Recarga', 'text-danger': mov.tipo === 'Gasto'}">
+                  [class.text-success]="mov.tipo === 'Recarga'" 
+                  [class.text-danger]="mov.tipo === 'Gasto'">
                 {{ mov.tipo === 'Recarga' ? '+' : '-' }} S/ {{ mov.monto }}
               </td>
             </tr>

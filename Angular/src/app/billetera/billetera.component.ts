@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NuevoMovimientoComponent } from '../nuevo-movimiento/nuevo-movimiento.component';
 import { Movimiento } from '../models/movimiento.model';
 
 @Component({
-  imports: [NuevoMovimientoComponent, CommonModule],
+  imports: [NuevoMovimientoComponent],
   selector: 'app-billetera',
   styleUrl: './billetera.component.css',
   templateUrl: './billetera.component.html',
