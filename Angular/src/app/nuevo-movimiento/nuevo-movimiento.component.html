@@ -8,7 +8,7 @@
         <div class="col-12 col-md-4">
           <label for="tipo" class="form-label">Tipo</label>
 
-          <select id="tipo" name="tipo" class="form-select" [(ngModel)]="tipo" required>
+          <select id="tipo" name="tipo" class="form-select" [value]="tipo" (input)="actualizarTipo($event)" required>
             <option value="" disabled selected>Selecciona un tipo</option>
             <option value="Recarga">Recarga</option>
             <option value="Gasto">Gasto</option>
@@ -17,17 +17,13 @@
 
         <div class="col-12 col-md-4">
           <label for="monto" class="form-label">Monto (S/)</label>
-
-          <input
-            id="monto"
-            [(ngModel)]="monto"
-            name="monto"
-            type="number"
-            class="form-control"
-            placeholder="0.00"
-            min="0.01"
-            step="0.01"
-            required
+          <input 
+          type="number" 
+          class="form-control" 
+          [value]="monto === 0 ? '' : monto" 
+          (input)="actualizarMonto($event)" 
+          placeholder="0.00" 
+          min="0.01"
           >
         </div>
         <div class="col-12 col-md-4">

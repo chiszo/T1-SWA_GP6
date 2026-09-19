@@ -1,10 +1,9 @@
 import { Component, input, output } from '@angular/core';
 import { Movimiento } from '../models/movimiento.model';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [FormsModule],
+  imports: [],
   selector: 'app-nuevo-movimiento',
   styleUrl: './nuevo-movimiento.component.css',
   templateUrl: './nuevo-movimiento.component.html',
@@ -16,6 +15,15 @@ export class NuevoMovimientoComponent {
   nuevoMovimiento = output<Movimiento>();
   tipo: string = '';
   monto: number = 0;
+
+  actualizarTipo(event: Event) {
+    this.tipo = (event.target as HTMLSelectElement).value;
+  }
+
+  actualizarMonto(event: Event) {
+  const valorEscrito = (event.target as HTMLInputElement).value;
+  this.monto = valorEscrito ? parseFloat(valorEscrito) : 0;
+  }
 
   esInvalido(): boolean {
   if (!this.tipo || this.monto <= 0) return true;
