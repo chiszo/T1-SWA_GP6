@@ -14,7 +14,7 @@
           </h2>
 
           <p class="fs-1 fw-bold text-success mb-0">
-            S/ 250.00
+            S/ {{ billeteraService.saldo.toFixed(2) }}
           </p>
         </div>
       </section>
@@ -41,45 +41,30 @@
         </thead>
 
         <tbody>
-          <tr>
-            <td>12/09/2026</td>
+          <!-- Recorremos la lista de movimientos -->
+          <tr *ngFor="let movimiento of billeteraService.movimientos">
+            <!-- Fecha -->
+            <td>{{ movimiento.fecha }}</td>
+            <!-- Tipo -->
             <td>
-              <span class="badge rounded-pill text-bg-success px-3">
-                Recarga
+              <span class="badge rounded-pill"
+                [class.text-bg-success]="movimiento.tipo === 'Recarga'"
+                [class.text-bg-danger]="movimiento.tipo === 'Gasto'">
+                {{ movimiento.tipo }}
               </span>
             </td>
-            <td class="text-success fw-semibold">+ S/ 100.00</td>
-          </tr>
 
-          <tr>
-            <td>11/09/2026</td>
-            <td>
-              <span class="badge rounded-pill text-bg-danger px-3">
-                Gasto
-              </span>
-            </td>
-            <td class="text-danger fw-semibold">- S/ 45.50</td>
-          </tr>
+            <!-- Monto -->
+            <td
+              class="fw-semibold"
+              [class.text-success]="movimiento.tipo === 'Recarga'"
+              [class.text-danger]="movimiento.tipo === 'Gasto'">
 
-          <tr>
-            <td>10/09/2026</td>
-            <td>
-              <span class="badge rounded-pill text-bg-danger px-3">
-                Gasto
-              </span>
-            </td>
-            <td class="text-danger fw-semibold">- S/ 20.00</td>
-          </tr>
+              {{ movimiento.tipo === 'Recarga' ? '+ ' : '- ' }}
+              S/ {{ movimiento.monto.toFixed(2) }}
 
-          <tr>
-            <td>09/09/2026</td>
-            <td>
-              <span class="badge rounded-pill text-bg-success px-3">
-                Recarga
-              </span>
             </td>
-            <td class="text-success fw-semibold">+ S/ 200.00</td>
-          </tr>
+
         </tbody>
       </table>
     </div>

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { BilleteraComponent } from './billetera/billetera.component';
 
 
@@ -10,5 +10,5 @@ import { BilleteraComponent } from './billetera/billetera.component';
   templateUrl: './app.html',
 })
 export class App {
-
+    
 }
